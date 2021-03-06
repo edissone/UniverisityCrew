@@ -8,10 +8,13 @@ spring:
     username: test
     password: pwd
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   flyway:
     baseline-on-migrate: false
     enabled: true
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+
+logging:
+  pattern:
+    console:
