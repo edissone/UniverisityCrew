@@ -14,7 +14,12 @@ spring:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+  main:
+    banner-mode: off
 
+reader:
+  files:
+    helpfile: src/main/resources/static/files/UC-help.txt
 logging:
   pattern:
     console:

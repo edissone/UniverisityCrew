@@ -24,10 +24,10 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "department")
+@Table(name = "degree")
 public class Degree {
   @Id
-  @Column(name = "department_id")
+  @Column(name = "degree_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 

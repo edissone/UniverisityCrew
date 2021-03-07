@@ -1,0 +1,21 @@
+University Crew help manual
+    Commands:
+    1.  lisf of: argument1 argument2 ... - show list of records. Can show all universities, departments, lectors
+        arguments:  universities    -   show all universities,
+                    departments     -   show all departments,
+                    lectors         -   show all lectors.
+        example:    list:of universities departments
+
+    2.  average salary in: 'department name'    - show average salary in chosen department.
+        example:    average salary in: 'Department of Science Philosophy'
+
+    3.  head of: 'department name'              - show head of chosen department.
+        example:    head of: 'Department of Science Philosophy'
+
+    4. stats of: 'department name'              - show count of lectors degrees in chosen department.
+        example:    stats of: 'Department of Science Philosophy'
+
+    5. count of employers in:                   - show count of employers in chosen department.
+        example:    count of employers in: 'Department of Science Philosophy'
+
+    6. exit      - exit a program

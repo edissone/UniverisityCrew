@@ -50,6 +50,7 @@ public class Lector {
   private Department headOf;
 
   @ManyToOne(
+      fetch = FetchType.EAGER,
       cascade = {
           CascadeType.REFRESH
       }
@@ -64,5 +65,9 @@ public class Lector {
       },
       mappedBy = "lectors")
   private List<Department> departments;
+
+  public String desc(){
+    return String.format("%s %s %s", degree.getName(), firstName, lastName);
+  }
 
 }
