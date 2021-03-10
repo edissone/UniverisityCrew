@@ -1,8 +1,6 @@
 package com.botscrew.university.service.entity;
 
-import com.botscrew.university.dao.model.Department;
 import com.botscrew.university.dao.model.Lector;
-import com.botscrew.university.dao.repository.DepartmentRepository;
 import com.botscrew.university.dao.repository.LectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +19,10 @@ public class LectorServiceImpl implements LectorService {
 
   @Override public List<Lector> list() {
     return repository.findAll();
+  }
+
+  @Override public List<Lector> search(String arg) {
+    return repository.findAllByFirstNameContainingOrLastNameContainingIgnoreCase(arg, arg);
   }
 
   @Override public Lector findByName(String firstName, String lastName) {

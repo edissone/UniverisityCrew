@@ -8,6 +8,8 @@ import java.util.List;
 public interface DepartmentService {
   List<Department> list();
 
+  List<Department> search(String arg);
+
   Department findByName(String name);
 
   List<Lector> getEmployers(String name);

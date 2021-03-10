@@ -1,5 +1,6 @@
 package com.botscrew.university.dao.model;
 
+import com.botscrew.university.service.ids.Describable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,7 +28,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "department")
-public class Department {
+public class Department extends Describable {
   @Id
   @Column(name = "department_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +39,6 @@ public class Department {
 
   @OneToOne(cascade = { CascadeType.PERSIST })
   @JoinColumn(name = "head", referencedColumnName = "lector_id")
-
   private Lector head;
 
   @ManyToMany()
@@ -48,11 +48,12 @@ public class Department {
       inverseJoinColumns = @JoinColumn(name = "lector_id")
   )
   private List<Lector> lectors;
-  /*
-  @ManyToOne(
-      cascade = { CascadeType.REFRESH }
-  )
+
+  @ManyToOne(cascade = { CascadeType.REFRESH })
+  @JoinColumn(name = "university", referencedColumnName = "university_id")
   private University university;
 
-   */
+  @Override public String desc() {
+    return String.format("%s: University: %s", name, university.getName());
+  }
 }

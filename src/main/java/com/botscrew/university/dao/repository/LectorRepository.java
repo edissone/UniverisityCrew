@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface LectorRepository extends CrudRepository<Lector, Integer> {
   List<Lector> findAll();
+  List<Lector> findAllByFirstNameContainingOrLastNameContainingIgnoreCase(String firstName, String lastName);
   Optional<Lector> findByFirstNameAndLastName(String first, String last);
   Boolean existsByFirstNameAndLastName(String first, String last);
 }

@@ -1,6 +1,5 @@
 package com.botscrew.university.service.entity;
 
-import com.botscrew.university.dao.model.Lector;
 import com.botscrew.university.dao.model.University;
 import com.botscrew.university.dao.repository.UniversityRepository;
 import org.springframework.stereotype.Service;
@@ -18,6 +17,10 @@ public class UniversityServiceImpl implements UniversityService {
 
   @Override public List<University> list() {
     return repository.findAll();
+  }
+
+  @Override public List<University> search(String arg) {
+    return repository.findAllByNameContainingIgnoreCase(arg);
   }
 
   @Override public University findByName(String name) {
