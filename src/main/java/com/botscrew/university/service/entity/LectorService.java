@@ -7,6 +7,8 @@ import java.util.List;
 public interface LectorService {
   List<Lector> list();
 
+  List<Lector> search(String arg);
+
   Lector findByName(String firstName, String lastName);
 
   void save(Lector entity);

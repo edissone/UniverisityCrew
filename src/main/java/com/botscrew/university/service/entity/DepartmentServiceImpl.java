@@ -26,6 +26,10 @@ public class DepartmentServiceImpl implements DepartmentService{
     return (List<Department>) repository.findAll();
   }
 
+  @Override public List<Department> search(String arg) {
+    return repository.findAllByNameContainingIgnoreCase(arg);
+  }
+
   @Override public Department findByName(String name) {
     return repository.findByName(name).orElseThrow(EntityNotFoundException::new);
   }

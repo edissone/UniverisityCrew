@@ -1,11 +1,11 @@
 package com.botscrew.university.dao.model;
 
+import com.botscrew.university.service.ids.Describable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "lector")
-public class Lector {
+public class Lector extends Describable {
   @Id
   @Column(name = "lector_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,7 +66,7 @@ public class Lector {
       mappedBy = "lectors")
   private List<Department> departments;
 
-  public String desc(){
+  @Override public String desc() {
     return String.format("%s %s %s", degree.getName(), firstName, lastName);
   }
 

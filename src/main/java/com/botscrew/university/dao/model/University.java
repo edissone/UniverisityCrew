@@ -1,11 +1,12 @@
 package com.botscrew.university.dao.model;
 
+import com.botscrew.university.service.ids.Describable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+import org.hibernate.Criteria;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Builder
@@ -28,7 +29,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "university")
-public class University {
+public class University extends Describable {
   @Id
   @Column(name = "university_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,12 +44,12 @@ public class University {
           CascadeType.REFRESH,
           CascadeType.REMOVE
       },
-      orphanRemoval = true
-  )
-  @JoinTable(
-      name = "university_to_department",
-      joinColumns = @JoinColumn(name = "university_id"),
-      inverseJoinColumns = @JoinColumn(name = "department_id")
+      orphanRemoval = true,
+      mappedBy = "university"
   )
   private List<Department> departments;
+
+  @Override public String desc() {
+    return name;
+  }
 }

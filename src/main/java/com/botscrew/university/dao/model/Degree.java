@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,4 +42,8 @@ public class Degree {
       mappedBy = "degree"
   )
   private List<Lector> lectors;
+
+  @Override public String toString() {
+    return name;
+  }
 }

@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface UniversityRepository extends CrudRepository<University, Integer> {
   List<University> findAll();
+  List<University> findAllByNameContainingIgnoreCase(String arg);
   Optional<University> findByName(String name);
   Boolean existsByName(String name);
 }

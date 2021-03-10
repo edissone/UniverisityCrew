@@ -4,6 +4,7 @@ import com.botscrew.university.service.executor.AverageSalaryExecutor;
 import com.botscrew.university.service.executor.CommandExecutor;
 import com.botscrew.university.service.executor.CountOfEmployersExecutor;
 import com.botscrew.university.service.executor.ExitExecutor;
+import com.botscrew.university.service.executor.GlobalSearchExecutor;
 import com.botscrew.university.service.executor.HeadOfDepartmentExecutor;
 import com.botscrew.university.service.executor.HelpExecutor;
 import com.botscrew.university.service.executor.ListOfExecutor;
@@ -17,6 +18,7 @@ import java.util.Map;
 import static com.botscrew.university.config.TemplateConfig.AVG_COMMAND;
 import static com.botscrew.university.config.TemplateConfig.COUNT_COMMAND;
 import static com.botscrew.university.config.TemplateConfig.EXIT_COMMAND;
+import static com.botscrew.university.config.TemplateConfig.GLOBAL_COMMAND;
 import static com.botscrew.university.config.TemplateConfig.HEAD_COMMAND;
 import static com.botscrew.university.config.TemplateConfig.HELP_COMMAND;
 import static com.botscrew.university.config.TemplateConfig.LIST_COMMAND;
@@ -32,7 +34,8 @@ public class ExecutorFactory {
       HeadOfDepartmentExecutor headOfDepartmentExecutor,
       ListOfExecutor listOfExecutor,
       StatisticExecutor statisticExecutor,
-      CountOfEmployersExecutor countOfEmployersExecutor) {
+      CountOfEmployersExecutor countOfEmployersExecutor,
+      GlobalSearchExecutor globalSearchExecutor) {
     commands.put(HELP_COMMAND, helpExecutor);
     commands.put(AVG_COMMAND, averageSalaryExecutor);
     commands.put(EXIT_COMMAND, exitExecutor);
@@ -40,6 +43,7 @@ public class ExecutorFactory {
     commands.put(LIST_COMMAND, listOfExecutor);
     commands.put(STATS_COMMAND, statisticExecutor);
     commands.put(COUNT_COMMAND, countOfEmployersExecutor);
+    commands.put(GLOBAL_COMMAND, globalSearchExecutor);
   }
 
   public CommandExecutor getInstance(String command) {
